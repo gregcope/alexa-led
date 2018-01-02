@@ -1,10 +1,10 @@
-# alexa-tv-remote
+# alexa-led
 
-This is a simple fun project to send commands to your TV using a standard
+This is a simple fun project to send commands to your LED string using a standard
 Alexa skill. Once created, Alexa will invoke your Lambda function, which
 will interpret your response and publish the required command into an
 AWS IOT topic. The Raspberry Pi (RPi) subscribes to this topic and converts
-the received messages into IR pulses for your TV to interpret.
+the received messages into LED commands.
 
 The Alexa Skill Kit also has a Video skill, which provides a fixed set
 of phrases and requires OAuth in order to bind to your device, feel free
@@ -12,15 +12,6 @@ to use this skill as a starting point if you want to go down this route!
 
 Further improvements to this skill could be as follows:
 - Improve the voice interface to make it less clunky
-- Allow the user to show the EPG and scroll
-- Allow the user to change the input mode (ex. HDMI1, DVI)
-- Allow the user to ask for a programme, it would be expected that the
- correct channel would be found or a schedule/reminder could be set. 
-
-### Youtube Video
-[![Youtube Video](http://img.youtube.com/vi/9lI3Rk-w2vo/0.jpg)](http://www.youtube.com/watch?v=9lI3Rk-w2vo "Youtube Video")
-
-https://www.youtube.com/watch?v=9lI3Rk-w2vo
 
 ## Finding your way round
 
@@ -36,7 +27,7 @@ lambda
  - serverless.yml (Serverless Framework configuration for deploying the Lambda function)
  - serverless.env.yml (Serverless Framework environmental file, you will need to edit this file)
 rpi
- - rpi.py (RPI python script, you will need LIRC and AWSIoTPythonSDK to use this)
+ - rpi.py (RPI python script, you will need LED working and AWSIoTPythonSDK to use this)
 ```
 
 ### Alexa
@@ -79,7 +70,7 @@ in your desired region. In this example, we will use `eu-west-1`.
 
 1. Create New Stack
 2. Upload the `lambda/resources.yaml` file
-3. Name the stack `alexa-tv-remote`
+3. Name the stack `alexa-led`
 4. Click next a few times
 5. Check 'I acknowledge that AWS CloudFormation might create IAM resources.'
 6. Click Create
