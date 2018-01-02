@@ -12,7 +12,7 @@ import boto3
 import json
 
 iot_client = boto3.client('iot-data')
-AWS_IOT_PUBLISH_TOPIC = 'alexa-tv-remote'
+AWS_IOT_PUBLISH_TOPIC = 'alexa-led'
 
 # --------------- Helpers that build all of the responses ----------------------
 

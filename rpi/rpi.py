@@ -5,8 +5,8 @@ import json
 import logging
 import time
 
-AWS_IOT_SUBSCRIBE_TOPIC = 'alexa-tv-remote'
-AWS_IOT_CLIENT_ID = 'alexa-tv-remote-device'
+AWS_IOT_SUBSCRIBE_TOPIC = 'alexa-led'
+AWS_IOT_CLIENT_ID = 'alexa-led-device'
 
 # This should be set to your accounts endpoint, such as UNIQUE.iot.REGION.amazonaws.com
 AWS_IOT_ENDPOINT = 'data.iot.eu-west-1.amazonaws.com'
@@ -23,11 +23,11 @@ def custom_callback(client, userdata, message):
     print(message.topic)
     print("--------------\n\n")
 
-    arr = json.loads(message.payload)
+    #arr = json.loads(message.payload)
 
-    for a in arr:
-        call(["irsend", "SEND_ONCE", "Toshiba_CT-90287-TV", a])
-        time.sleep(0.6)
+    #for a in arr:
+    #    call(["irsend", "SEND_ONCE", "Toshiba_CT-90287-TV", a])
+    #    time.sleep(0.6)
 
 
 # Configure logging

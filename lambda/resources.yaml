@@ -1,5 +1,5 @@
 ---
-Description: Deployment and IOT resources for Alexa TV Remote
+Description: Deployment and IOT resources for Alexa LED
 
 Resources:
 
@@ -39,18 +39,18 @@ Resources:
           Resource: arn:aws:lambda:*
         - Effect: Allow
           Action: lambda:*
-          Resource: arn:aws:lambda:*:*:function:alexa-tv-remote*
+          Resource: arn:aws:lambda:*:*:function:alexa-led*
         - Effect: Allow
           Action: iam:PassRole
           Resource: !GetAtt ApplicationRole.Arn
         - Effect: Allow
           Action: cloudformation:*
-          Resource: !Sub arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/alexa-tv-remote-*
+          Resource: !Sub arn:aws:cloudformation:${AWS::Region}:${AWS::AccountId}:stack/alexa-led-*
         - Effect: Allow
           Action: logs:*
           Resource:
            - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group::log-stream*
-           - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/alexa-tv-remote-*
+           - !Sub arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/alexa-led-*
 
 
   ApplicationPolicy:
@@ -75,7 +75,7 @@ Resources:
           - "*"
         - Effect: Allow
           Action: iot:Publish
-          Resource: !Sub arn:aws:iot:${AWS::Region}:${AWS::AccountId}:topic/alexa-tv-remote
+          Resource: !Sub arn:aws:iot:${AWS::Region}:${AWS::AccountId}:topic/alexa-led
 
   IotPolicy:
     Type: AWS::IoT::Policy
@@ -88,10 +88,10 @@ Resources:
             Resource: "*"
           - Effect: Allow
             Action: iot:Subscribe
-            Resource: !Sub arn:aws:iot:${AWS::Region}:${AWS::AccountId}:topicfilter/alexa-tv-remote
+            Resource: !Sub arn:aws:iot:${AWS::Region}:${AWS::AccountId}:topicfilter/alexa-led
           - Effect: Allow
             Action: iot:Receive
-            Resource: !Sub arn:aws:iot:${AWS::Region}:${AWS::AccountId}:topic/alexa-tv-remote
+            Resource: !Sub arn:aws:iot:${AWS::Region}:${AWS::AccountId}:topic/alexa-led
 
 
 Outputs:
