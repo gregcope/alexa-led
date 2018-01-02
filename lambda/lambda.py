@@ -80,8 +80,8 @@ def get_welcome_response():
 
     session_attributes = {}
     card_title = "Welcome"
-    speech_output = "Welcome to the Alexa TV IR Remote. Please tell me what to do, " \
-                    "for example you can say, 'change to channel 4' or 'mute'."
+    speech_output = "Welcome to the Alexa LED Remote. Please tell me what to do, " \
+                    "for example you can say, 'change to blue' or 'off'."
     # If the user either does not reply to the welcome message or says something
     # that is not understood, they will be prompted again with this text.
     reprompt_text = "I was unable to understand your request, please try again."
@@ -118,7 +118,7 @@ def end_session_with_message(message):
 
 
 def end_session_with_failed_iot():
-    end_session_with_message("Unable to send command to remote.")
+    end_session_with_message("Unable to send command to LED.")
 
 
 def send_iot_request(key_presses):
